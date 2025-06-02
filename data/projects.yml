@@ -1,0 +1,10 @@
+projects:
+  - title: "Portfolio Website V2"
+    description: "Site portfolio moderne et responsive développé avec HTML5, CSS3 et JavaScript vanilla. Design minimaliste avec animations fluides, système de projets configurables via YAML et optimisations SEO."
+    technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Express", "YAML"]
+    link: "https://github.com/shadowforce78/portfolio-v2"
+    demo: "https://saumondeluxe.com"
+    image: "/images/portfolio-preview.png"
+    featured: true
+    year: 2025
+    status: "Terminé"

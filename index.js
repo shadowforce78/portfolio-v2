@@ -4,7 +4,7 @@ const yaml = require('js-yaml');
 const path = require('path');
 
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = 6969 || process.env.PORT;
 
 // Middleware
 app.use(express.json());

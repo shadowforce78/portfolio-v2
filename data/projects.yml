@@ -8,3 +8,13 @@ projects:
     featured: true
     year: 2025
     status: "Terminé"
+
+  - title: "SushiScan"
+    description: "Une application pour PC et mobile codé en C# avec le FrameWork Avalonia, permettant de lire vos scans de manga favoris, avec un système de téléchargement d'oeuvre afin de pouvoir y accéder hors ligne et plus rapidement."
+    technologies: ["C#", "Avalonia", "MVVM", "SQLite", "REST API"]
+    link: "https://github.com/shadowforce78/SushiScan"
+    demo: "https://github.com/shadowforce78/SushiScan/releases/latest"
+    image: "/images/sushiscan-preview.png"
+    featured: true
+    year: 2025
+    status: "En cours"

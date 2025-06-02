@@ -17,7 +17,7 @@ class Portfolio {
         // Menu mobile toggle
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         const nav = document.querySelector('nav');
-        
+
         if (mobileToggle) {
             mobileToggle.addEventListener('click', () => {
                 nav.classList.toggle('active');
@@ -40,7 +40,7 @@ class Portfolio {
                 if (target) {
                     const headerHeight = document.querySelector('header').offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight;
-                    
+
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
@@ -61,7 +61,7 @@ class Portfolio {
             if (e.target.classList.contains('filter-btn')) {
                 const filter = e.target.dataset.filter;
                 this.filterProjects(filter);
-                
+
                 // Mise à jour de l'état actif des boutons
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
@@ -78,7 +78,7 @@ class Portfolio {
 
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
-            
+
             if (currentScrollY > 100) {
                 header.style.transform = currentScrollY > lastScrollY ? 'translateY(-100%)' : 'translateY(0)';
                 header.style.boxShadow = 'var(--shadow-medium)';
@@ -86,7 +86,7 @@ class Portfolio {
                 header.style.transform = 'translateY(0)';
                 header.style.boxShadow = 'none';
             }
-            
+
             lastScrollY = currentScrollY;
         });
 
@@ -122,7 +122,7 @@ class Portfolio {
             if (!response.ok) {
                 throw new Error('Erreur lors du chargement des projets');
             }
-            
+
             this.projects = await response.json();
             this.renderProjects();
         } catch (error) {
@@ -143,11 +143,11 @@ class Portfolio {
         });
 
         projectsContainer.innerHTML = sortedProjects.map(project => this.createProjectCard(project)).join('');
-        
+
         // Ajouter l'animation d'apparition
         this.animateProjectCards();
-    }    createProjectCard(project) {
-        const technologies = project.technologies.map(tech => 
+    } createProjectCard(project) {
+        const technologies = project.technologies.map(tech =>
             `<span class="tech-tag">${tech}</span>`
         ).join('');
 
@@ -169,26 +169,26 @@ class Portfolio {
             'Planifié': '#6b7280'
         };
 
-        const statusBadge = project.status ? 
+        const statusBadge = project.status ?
             `<span class="status-badge" style="background: ${statusColor[project.status] || '#6b7280'};">
                 ${project.status}
             </span>` : '';
 
-        const yearBadge = project.year ? 
+        const yearBadge = project.year ?
             `<span class="year-badge">${project.year}</span>` : '';
 
-        const featuredBadge = project.featured ? 
+        const featuredBadge = project.featured ?
             `<span class="featured-badge">⭐ Projet phare</span>` : '';
 
         return `
             <div class="project-card" data-featured="${project.featured}">
                 <div class="project-image">
-                    ${project.image ? 
-                        `<img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover;">` :
-                        `<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--gradient); color: white; font-weight: 600;">
+                    ${project.image ?
+                `<img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover;">` :
+                `<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--gradient); color: white; font-weight: 600;">
                             ${project.title}
                         </div>`
-                    }
+            }
                     <div class="project-badges">
                         ${featuredBadge}
                         ${statusBadge}
@@ -297,14 +297,14 @@ class Portfolio {
 
     filterProjects(filter) {
         const projectCards = document.querySelectorAll('.project-card');
-        
+
         projectCards.forEach(card => {
             card.style.display = 'none';
             card.style.opacity = '0';
-            
+
             let shouldShow = false;
-            
-            switch(filter) {
+
+            switch (filter) {
                 case 'all':
                     shouldShow = true;
                     break;
@@ -312,15 +312,18 @@ class Portfolio {
                     shouldShow = card.dataset.featured === 'true';
                     break;
                 case 'web':
-                    shouldShow = card.querySelector('.project-title').textContent.includes('Website') || 
-                               card.querySelector('.project-title').textContent.includes('App') ||
-                               card.querySelector('.project-title').textContent.includes('Dashboard');
+                    shouldShow = card.querySelector('.project-title').textContent.includes('Website') ||
+                        card.querySelector('.project-title').textContent.includes('App') ||
+                        card.querySelector('.project-title').textContent.includes('Dashboard');
+                    break;
+                case 'app':
+                    shouldShow = card.querySelector('.project-title').textContent.includes('App');
                     break;
                 case 'api':
                     shouldShow = card.querySelector('.project-title').textContent.includes('API');
                     break;
             }
-            
+
             if (shouldShow) {
                 card.style.display = 'block';
                 setTimeout(() => {

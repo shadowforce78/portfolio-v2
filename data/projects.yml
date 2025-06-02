@@ -21,7 +21,7 @@ projects:
     status: "En cours"
     type: ["App", "API"]
 
-  - title : "Saumon API"
+  - title: "Saumon API"
     description: "Mon API personnelle pour gérer mes projets, articles et autres contenus. Développée en Python avec FastAPI, elle offre une interface RESTful pour interagir avec mes données. Utilisée par plusieurs de mes projets."
     technologies: ["Python", "FastAPI", "PostgreSQL", "REST API"]
     link: "https://github.com/shadowforce78/SaumonAPI"
@@ -31,3 +31,13 @@ projects:
     year: 2024-?
     status: "En cours"
     type: ["API"]
+
+  - title: "UVSQ WebApp"
+    description: "Une application web pour l'Université de Versailles Saint-Quentin-en-Yvelines, développée en React et Node.js. Elle permet aux étudiants de gérer leurs emplois du temps, notes et autres informations académiques."
+    technologies: ["React", "Node.js", "Express", "MongoDB"]
+    link: "https://github.com/shadowforce78/UVSQ-APP-REMAKE"
+    demo: "https://uvsq.saumondeluxe.com"
+    image: "/images/uvsq-webapp-preview.png"
+    featured: false
+    year: 2024-2025
+    status: "Terminé"

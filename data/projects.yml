@@ -41,3 +41,4 @@ projects:
     featured: false
     year: 2024-2025
     status: "Terminé"
+    type: ["WebApp"]

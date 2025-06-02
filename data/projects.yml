@@ -20,3 +20,14 @@ projects:
     year: 2025
     status: "En cours"
     type: ["App", "API"]
+
+  - title : "Saumon API"
+    description: "Mon API personnelle pour gérer mes projets, articles et autres contenus. Développée en Python avec FastAPI, elle offre une interface RESTful pour interagir avec mes données. Utilisée par plusieurs de mes projets."
+    technologies: ["Python", "FastAPI", "PostgreSQL", "REST API"]
+    link: "https://github.com/shadowforce78/SaumonAPI"
+    demo: "https://api.saumondeluxe.com"
+    image: "/images/saumon-api-preview.png"
+    featured: true
+    year: 2024-?
+    status: "En cours"
+    type: ["API"]

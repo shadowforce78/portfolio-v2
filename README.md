@@ -7,9 +7,12 @@ Un portfolio moderne et responsive pour développeur fullstack, avec un système
 - **Design moderne et responsive** - Optimisé pour desktop et mobile
 - **Gestion de projets via YAML** - Facile à maintenir et à mettre à jour
 - **Animations fluides** - Expérience utilisateur engageante
-- **Mode sombre/clair** - S'adapte aux préférences système
+- **Mode sombre/clair manuel** - Bouton toggle + raccourci clavier (Ctrl+Shift+T)
+- **Thème automatique** - S'adapte aux préférences système par défaut
+- **Filtres de projets** - Tri par catégories (Tous, Projets phares, Web Apps, APIs)
 - **Performance optimisée** - Chargement rapide et SEO-friendly
 - **Navigation intuitive** - Menu mobile et scroll smooth
+- **Badges de projets** - Statut, année et projets phares mis en évidence
 
 ## 🛠 Technologies utilisées
 
@@ -113,9 +116,36 @@ Le portfolio est entièrement responsive avec :
 - Typographie fluide
 - Images optimisées
 
-## 🎨 Thème sombre/clair
+## 🎨 Gestion des thèmes
 
-Le site s'adapte automatiquement aux préférences système de l'utilisateur grâce aux media queries `prefers-color-scheme`.
+### Changement automatique
+Le site détecte automatiquement les préférences système de l'utilisateur et applique le thème correspondant au premier chargement.
+
+### Changement manuel
+- **Bouton toggle** : Cliquez sur l'icône 🌙/☀️ dans le header
+- **Raccourci clavier** : `Ctrl + Shift + T` (ou `Cmd + Shift + T` sur Mac)
+- **Sauvegarde** : Le choix est automatiquement sauvegardé dans le localStorage
+
+### Thèmes disponibles
+- **Mode clair** : Interface lumineuse avec fond blanc
+- **Mode sombre** : Interface sombre avec fond noir pour réduire la fatigue oculaire
+
+### Personnalisation des couleurs
+Dans `public/css/style.css`, vous pouvez modifier les variables CSS pour chaque thème :
+
+```css
+:root {
+    --primary-color: #8b25eb;     /* Couleur principale */
+    --secondary-color: #6e1eaf;   /* Couleur secondaire */
+    --accent-color: #833bf6;      /* Couleur d'accent */
+}
+
+[data-theme="dark"] {
+    --text-primary: #f9fafb;      /* Texte principal en mode sombre */
+    --bg-primary: #111827;        /* Arrière-plan principal en mode sombre */
+    /* ... autres variables */
+}
+```
 
 ## 🔧 Scripts disponibles
 

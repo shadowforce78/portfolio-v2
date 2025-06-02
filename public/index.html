@@ -39,14 +39,21 @@
     <body>
         <!-- Header avec navigation -->
         <header>
-            <div class="container">
-                <div class="header-content">
-                    <a href="#home" class="logo">Adam Planque</a>
-
-                    <button class="mobile-menu-toggle"
-                        aria-label="Toggle mobile menu">
-                        ☰
-                    </button>
+            <div class="container">                <div class="header-content">
+                    <a href="#home" class="logo">Adam Planque</a>                    <div class="header-controls">
+                        <button class="theme-toggle" 
+                                aria-label="Basculer entre le mode sombre et clair" 
+                                title="Changer de thème (Ctrl+Shift+T)"
+                                data-tooltip="Changer de thème">
+                            <span class="theme-icon" aria-hidden="true">🌙</span>
+                        </button>
+                        
+                        <button class="mobile-menu-toggle"
+                            aria-label="Toggle mobile menu"
+                            aria-expanded="false">
+                            ☰
+                        </button>
+                    </div>
 
                     <nav role="navigation">
                         <ul>

@@ -21,9 +21,20 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Dark theme */
+/* Dark theme manual toggle */
+[data-theme="dark"] {
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-light: #9ca3af;
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-card: #374151;
+    --border-color: #4b5563;
+}
+
+/* Auto dark theme (fallback) */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --text-primary: #f9fafb;
         --text-secondary: #d1d5db;
         --text-light: #9ca3af;
@@ -51,6 +62,7 @@ body {
     color: var(--text-primary);
     background-color: var(--bg-primary);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Conteneur principal */
@@ -73,8 +85,12 @@ header {
     transition: var(--transition);
 }
 
+[data-theme="dark"] header {
+    background: rgba(17, 24, 39, 0.95);
+}
+
 @media (prefers-color-scheme: dark) {
-    header {
+    :root:not([data-theme="light"]) header {
         background: rgba(17, 24, 39, 0.95);
     }
 }
@@ -84,6 +100,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .logo {
@@ -96,6 +118,42 @@ header {
 
 .logo:hover {
     color: var(--secondary-color);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-icon {
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(180deg);
 }
 
 /* Navigation */
@@ -137,6 +195,16 @@ nav a.active {
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
+    }
+
+    .header-controls {
+        gap: 0.75rem;
+    }
+
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
     }
 
     nav {
@@ -336,7 +404,7 @@ section {
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-light);
-    transition: var(--transition);
+    transition: var(--transition), background-color 0.3s ease, border-color 0.3s ease;
     border: 1px solid var(--border-color);
 }
 
@@ -552,6 +620,21 @@ footer {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Theme transition animation */
+.theme-transition {
+    transition: all 0.5s ease-in-out !important;
+}
+
+.theme-changing {
+    animation: themeChange 0.6s ease-in-out;
+}
+
+@keyframes themeChange {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
 }
 
 /* Responsive Design */

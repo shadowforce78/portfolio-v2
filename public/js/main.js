@@ -154,7 +154,7 @@ class Portfolio {
 
         // Ajouter l'animation d'apparition
         this.animateProjectCards();
-    } createProjectCard(project) {
+    }    createProjectCard(project) {
         const technologies = project.technologies.map(tech =>
             `<span class="tech-tag">${tech}</span>`
         ).join('');
@@ -188,8 +188,11 @@ class Portfolio {
         const featuredBadge = project.featured ?
             `<span class="featured-badge">⭐ Projet phare</span>` : '';
 
+        // Ajouter les types comme data attributes pour le filtrage
+        const projectTypes = project.type ? project.type.join(',') : '';
+
         return `
-            <div class="project-card" data-featured="${project.featured}">
+            <div class="project-card" data-featured="${project.featured}" data-types="${projectTypes}">
                 <div class="project-image">
                     ${project.image ?
                 `<img src="${project.image}" alt="${project.title}" style="width: 100%; height: 100%; object-fit: cover;">` :
@@ -301,9 +304,7 @@ class Portfolio {
             console.error('Erreur:', error);
             this.showNotification('Erreur lors de l\'ajout du projet', 'error');
         }
-    }
-
-    filterProjects(filter) {
+    }    filterProjects(filter) {
         const projectCards = document.querySelectorAll('.project-card');
 
         projectCards.forEach(card => {
@@ -311,6 +312,7 @@ class Portfolio {
             card.style.opacity = '0';
 
             let shouldShow = false;
+            const projectTypes = card.dataset.types ? card.dataset.types.split(',') : [];
 
             switch (filter) {
                 case 'all':
@@ -320,15 +322,13 @@ class Portfolio {
                     shouldShow = card.dataset.featured === 'true';
                     break;
                 case 'web':
-                    shouldShow = card.querySelector('.project-title').textContent.includes('Website') ||
-                        card.querySelector('.project-title').textContent.includes('App') ||
-                        card.querySelector('.project-title').textContent.includes('Dashboard');
+                    shouldShow = projectTypes.includes('WebApp');
                     break;
                 case 'app':
-                    shouldShow = card.querySelector('.project-title').textContent.includes('App');
+                    shouldShow = projectTypes.includes('App');
                     break;
                 case 'api':
-                    shouldShow = card.querySelector('.project-title').textContent.includes('API');
+                    shouldShow = projectTypes.includes('API');
                     break;
             }
 

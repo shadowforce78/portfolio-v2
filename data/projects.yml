@@ -5,7 +5,7 @@ projects:
     link: "https://github.com/shadowforce78/portfolio-v2"
     demo: "https://saumondeluxe.com"
     image: "/images/portfolio-preview.png"
-    featured: true
+    featured: false
     year: 2025
     status: "Terminé"
     type: ["WebApp", "API"]

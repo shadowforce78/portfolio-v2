@@ -155,7 +155,7 @@ Ce projet est sous licence MIT. Vous êtes libre de l'utiliser et de le modifier
 
 ## 📞 Contact
 
-Adam Planque - [adam.planque@example.com](mailto:adam.planque@example.com)
+Adam Planque - [planque.adam@gmail.com](mailto:planque.adam@gmail.com)
 
 ---
 

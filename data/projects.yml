@@ -53,3 +53,14 @@ projects:
     year: 2023-2025
     status: "Terminé"
     type: ["App"]
+
+  - title: "Librairies JavaScript"
+    description: "Un ensemble de bibliothèques JavaScript pour faciliter le développement web. Inclut des fonctions utilitaires, des composants UI et des outils de gestion d'état. Conçu pour être léger et performant."
+    technologies: ["JavaScript", "HTML", "CSS"]
+    link: "http://github.com/shadowforce78/lib.saumondeluxe.com"
+    demo: "http://lib.saumondeluxe.com"
+    image: "/images/librairies-js-preview.png"
+    featured: false
+    year: 2024-2025
+    status: "Terminé"
+    type: ["WebApp", "API"]
